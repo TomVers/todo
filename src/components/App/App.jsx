@@ -123,7 +123,7 @@ export default class App extends Component {
     const completedCount = this.state.todoData
       .filter((el) => el.completed).length;
 
-    const taskCount = this.state.todoData.length - completedCount;
+    const tasksLeft = this.state.todoData.length - completedCount;
 
     return (
       <div className='app'>
@@ -132,7 +132,7 @@ export default class App extends Component {
       <TaskList todos = { visibleTasks }
         onDeleted = { this.deleteTask }
         onToggleCompleted = { this.onToggleCompleted } />
-      <Footer task = { taskCount } 
+      <Footer tasksLeft = { tasksLeft } 
         filter = { filter } 
         onFilterChange = { this.onFilterChange }
         onClearCompleted = { this.onClearCompleted } />

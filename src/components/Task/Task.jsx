@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import './Task.css';
 import { formatDistanceToNow } from 'date-fns';
+import PropTypes from 'prop-types';
+
+import './Task.css';
 
 export default class Task extends Component {
 
@@ -11,7 +13,19 @@ export default class Task extends Component {
               label: props.label,
               creationTime: Date.now(),
             };
-          }
+      }
+
+      static defaultProps = {
+            onDeleted: () => {},
+            onToggleCompleted: () => {},
+            completed: false,
+      }
+
+      static propTypes = {
+            onDeleted: PropTypes.func,
+            onToggleCompleted: PropTypes.func,
+            completed: PropTypes.bool,
+      }
 
       onTaskEdit = () => {
             this.setState((state) => ({
@@ -55,7 +69,7 @@ export default class Task extends Component {
             return (
             <div className = 'view'>
             <input className = 'toggle' type='checkbox' checked = { completed }
-                  onClick = { onToggleCompleted }>
+                  onChange = { onToggleCompleted }>
             </input>
             <label className = 'task-label' onClick = { onToggleCompleted }>
                   <span className = { classNames } > { label } </span>

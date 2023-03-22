@@ -1,5 +1,7 @@
 import React from 'react';
 import Task from '../Task';
+import PropTypes from 'prop-types';
+
 import './TaskList.css';
 
 const TaskList = ( { todos, onDeleted, onToggleCompleted } ) => {
@@ -9,7 +11,7 @@ const TaskList = ( { todos, onDeleted, onToggleCompleted } ) => {
     const { id, ...itemProps } = item;
 
     return (
-      <li key = { id } className='todo-list_item'>
+      <li key = { id } >
         <Task
           { ...itemProps }
         onDeleted = { () => onDeleted(id)}
@@ -23,6 +25,18 @@ const TaskList = ( { todos, onDeleted, onToggleCompleted } ) => {
       { elements }
     </ul>
   );
+}
+
+TaskList.defaultProps = {
+  todos: [],
+  onDeleted: () => {},
+  onToggleCompleted:  () => {},
+}
+
+TaskList.propTypes = {
+  todos: PropTypes.array,
+  onDeleted: PropTypes.func,
+  onToggleCompleted: PropTypes.func,
 }
 
 export default TaskList;
