@@ -1,0 +1,45 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font: 14px Helvetica Neue,Helvetica,Arial,sans-serif;
+}
+
+button {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  font-size: 100%;
+  vertical-align: baseline;
+  font-family: inherit;
+  font-weight: inherit;
+  color: inherit;
+  -webkit-appearance: none;
+  appearance: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.app {
+  position: relative;
+  min-width: 230px;
+  max-width: 550px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 2px 4px 0 rgb(0 0 0 / 20%), 0 25px 50px 0 rgb(0 0 0 / 10%);
+  margin-top: 130px;
+  background: #fff;
+  font-weight: 300;
+}
+
+.app-header {
+  margin-top: 20px;
+  font-size: 80px;
+  font-weight: 200;
+  text-align: center;
+  color: rgba(175, 47, 47, 0.15);
+  width: 100%;
+  position: absolute;
+  top: -130px;
+}

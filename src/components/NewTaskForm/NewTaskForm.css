@@ -1,0 +1,14 @@
+.new-task-input {
+      width: 100%;
+      padding: 16px 16px 14px 60px;
+      border: none;
+      box-shadow: inset 0 -2px 1px rgb(0 0 0 / 3%);
+      font-size: 24px;
+      outline: none;
+}
+
+.new-task-input::placeholder {
+	font-style: italic;
+	font-weight: 150;
+	color: rgba(0, 0, 0, 0.4);
+}

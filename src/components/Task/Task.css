@@ -1,0 +1,91 @@
+.icon {
+      position: absolute;
+	top: 0;
+	bottom: -3px;
+	width: 30px;
+	height: 40px;
+	font-size: 34px;
+	color: #cc9a9a;
+	margin: auto 0 11px;
+	transition: color 0.2s ease-out;
+	cursor: pointer;
+}
+
+.icon:hover {
+      color: #af5b5e;
+}
+
+.icon-edit {
+      right: 45px;
+      font-size: 19px;
+}
+
+.icon-edit:after {
+	content: '✎';
+      
+}
+
+.icon-destroy {
+      right: 10px;
+
+}
+
+.icon-destroy:after {
+      content: '×';
+      font-weight: 200;
+}
+
+.completed {
+      color: #cdcdcd;
+      text-decoration: line-through;
+}
+
+.toggle {
+	text-align: center;
+	width: 30px;
+	height: 30px;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 15px;
+	margin: auto 0;
+	border-radius: 50%;
+	border: 1px solid #e6e6e6;
+	appearance: none;
+	cursor: pointer;
+}
+.toggle:checked {
+	border: 1px solid rgba(0, 128, 0, 0.566);
+	background: url(./check.png) no-repeat;
+	background-position: 0px 2px;
+	background-color: none;
+	background-size: 100%;
+	filter: opacity(40%);
+}
+
+
+
+
+.date-created {
+	color: gray;
+	font-size: 13px;	
+}
+
+.editing {
+	position: relative;
+	margin: 0;
+	height: 100%;
+	width: 100%;
+	font-family: inherit;
+	font-weight: inherit;
+	
+	color: inherit;
+	padding: 15px;
+	padding-left: 60px;
+	border: 1px solid #999;
+	box-shadow: inset 0 -1px 5px 0 rgb(0 0 0 / 20%);
+	box-sizing: border-box;
+	    
+	    
+}
+
