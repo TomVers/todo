@@ -1,10 +1,9 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 
-import "./NewTaskForm.css";
+import './NewTaskForm.css'
 
 export default class NewTaskForm extends Component {
-  
   static defaultProps = {
     onTaskAdded: () => {},
   }
@@ -19,28 +18,30 @@ export default class NewTaskForm extends Component {
 
   onLabelChange = (event) => {
     this.setState({
-      label: event.target.value
+      label: event.target.value,
     })
   }
 
   onSubmit = (event) => {
-    event.preventDefault();
-    this.props.onTaskAdded(this.state.label);
+    event.preventDefault()
+    this.props.onTaskAdded(this.state.label)
     this.setState({
-      label: ''
-    });
+      label: '',
+    })
   }
 
   render() {
-    return <form className="new-task-form"
-      onSubmit = { this.onSubmit } >
-      <input type = 'text'
-      autoFocus
-      className="new-task-input"
-      placeholder = { 'What needs to be done?' }
-      onChange = { this.onLabelChange }
-      value = {this.state.label} >
-      </input>
-    </form>
+    return (
+      <form className="new-task-form" onSubmit={this.onSubmit}>
+        <input
+          type="text"
+          autoFocus
+          className="new-task-input"
+          placeholder={'What needs to be done?'}
+          onChange={this.onLabelChange}
+          value={this.state.label}
+        ></input>
+      </form>
+    )
   }
 }
