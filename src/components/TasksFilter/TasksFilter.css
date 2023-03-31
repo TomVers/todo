@@ -1,31 +1,33 @@
 .taskfilter {
-      list-style: none;
-	margin: 0;
-    	padding: 0;
-	left: 0;
-	right: 0;
-	display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  left: 0;
+  right: 0;
+  display: flex;
 }
 
-
 .taskfilter_btn {
-	display: inline-block;
-	color: inherit;
-	margin: 3px;
-	padding: 1px 7px;
-	text-decoration: none;
-	border: 1px solid transparent;
-	border-radius: 3px;
-      background: #fff;
-      font-weight: 200;
-	cursor: pointer;
-
+  display: inline-block;
+  color: inherit;
+  margin: 3px;
+  padding: 1px 7px;
+  text-decoration: none;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  background: #fff;
+  font-weight: 200;
+  cursor: pointer;
 }
 
 .taskfilter_btn--select {
-	border-color: rgba(175, 47, 47, 0.2);
+  border-color: rgba(175, 47, 47, 0.2);
 }
 
 .taskfilter_btn--noselect:hover {
-	border-color: rgba(175, 47, 47, 0.1);
+  border-color: rgba(175, 47, 47, 0.1);
+}
+.taskfilter_input {
+  appearance: none;
+  -webkit-appearance: none;
 }

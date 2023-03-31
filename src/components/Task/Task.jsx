@@ -53,9 +53,10 @@ export default class Task extends Component {
             })
           }}
           onKeyDown={(e) => {
-            if (e.key === 'Enter') {
+            if (e.key == 'Enter' && e.target.value.trim()) {
               this.setState({
                 isEditMode: !isEditMode,
+                label: e.target.value.trim(),
               })
             }
           }}

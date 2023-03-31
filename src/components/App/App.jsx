@@ -36,6 +36,10 @@ export default class App extends Component {
   }
 
   addTask = (text) => {
+    text = text.trim()
+    if (text.length < 1) {
+      return
+    }
     const newItem = {
       label: text,
       id: this.maxId++,

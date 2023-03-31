@@ -28,9 +28,16 @@ export default class TasksFilter extends Component {
       const clazz = isActive ? 'taskfilter_btn--select' : 'taskfilter_btn--noselect'
       return (
         <li key={name}>
-          <button type="button" className={`taskfilter_btn ${clazz}`} onClick={() => onFilterChange(name)}>
+          <label className={`taskfilter_btn ${clazz}`}>
             {label}
-          </button>
+            <input
+              type="radio"
+              className="taskfilter_input"
+              checked={isActive}
+              readOnly
+              onClick={() => onFilterChange(name)}
+            ></input>
+          </label>
         </li>
       )
     })
