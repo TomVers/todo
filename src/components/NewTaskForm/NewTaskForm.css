@@ -1,14 +1,33 @@
+.new-task-form {
+  display: flex;
+}
+
 .new-task-input {
-      width: 100%;
-      padding: 16px 16px 14px 60px;
-      border: none;
-      box-shadow: inset 0 -2px 1px rgb(0 0 0 / 3%);
-      font-size: 24px;
-      outline: none;
+  width: 100%;
+  padding: 16px 16px 14px 60px;
+  border: none;
+  box-shadow: inset 0 -2px 1px rgb(0 0 0 / 3%);
+  font-size: 24px;
+  outline: none;
+  font-weight: 200;
 }
 
 .new-task-input::placeholder {
-	font-style: italic;
-	font-weight: 150;
-	color: rgba(0, 0, 0, 0.4);
+  font-style: italic;
+  font-weight: 150;
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.new-task-form__timer {
+  border: none;
+  box-shadow: inset 0 -2px 1px rgb(0 0 0 / 3%);
+  font-size: 24px;
+  outline: none;
+  width: 20%;
+  font-weight: 200;
+}
+.new-task-form__timer::placeholder {
+  font-style: italic;
+  font-weight: 150;
+  color: rgba(0, 0, 0, 0.4);
 }

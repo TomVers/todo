@@ -37,10 +37,12 @@ export default class NewTaskForm extends Component {
           type="text"
           autoFocus
           className="new-task-input"
-          placeholder={'What needs to be done?'}
+          placeholder={'Task'}
           onChange={this.onLabelChange}
           value={this.state.label}
-        ></input>
+        />
+        <input type="number" className="new-task-form__timer" placeholder={'Min'} min={0} max={60} />
+        <input type="number" className="new-task-form__timer" placeholder={'Sec'} min={0} max={60} />
       </form>
     )
   }
