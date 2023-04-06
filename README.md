@@ -1,3 +1,3 @@
-# Vercel Todo Application:
+# Vercel Todo Application with timer:
 
-https://todo-coral-six.vercel.app/
+https://todo-tomvers.vercel.app/
