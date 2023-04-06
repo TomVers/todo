@@ -9,14 +9,19 @@ export default class App extends Component {
   maxId = 100
 
   state = {
-    todoData: [this.createTask('Do sports'), this.createTask('To do App'), this.createTask('Relax at home')],
+    todoData: [
+      this.createTask('Do sports', 5),
+      this.createTask('To do App', 11),
+      this.createTask('Relax at home', 671),
+    ],
     term: '',
     filter: 'all', // all, active, completed
   }
 
-  createTask(label) {
+  createTask(label, taskTime) {
     return {
       label,
+      taskTime,
       done: false,
       id: this.maxId++,
     }
@@ -35,7 +40,7 @@ export default class App extends Component {
     })
   }
 
-  addTask = (text) => {
+  addTask = (text, taskTime) => {
     text = text.trim()
     if (text.length < 1) {
       return
@@ -43,6 +48,7 @@ export default class App extends Component {
     const newItem = {
       label: text,
       id: this.maxId++,
+      taskTime: taskTime,
     }
 
     this.setState(({ todoData }) => {
@@ -116,7 +122,11 @@ export default class App extends Component {
       <div className="app">
         <h1 className="app-header">todos</h1>
         <NewTaskForm onTaskAdded={this.addTask} />
-        <TaskList todos={visibleTasks} onDeleted={this.deleteTask} onToggleCompleted={this.onToggleCompleted} />
+        <TaskList
+          todos={visibleTasks}
+          onDeleted={this.deleteTask}
+          onToggleCompleted={this.onToggleCompleted}
+        />
         <Footer
           tasksLeft={tasksLeft}
           filter={filter}

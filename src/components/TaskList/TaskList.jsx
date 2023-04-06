@@ -11,7 +11,11 @@ const TaskList = ({ todos, onDeleted, onToggleCompleted }) => {
 
     return (
       <li key={id}>
-        <Task {...itemProps} onDeleted={() => onDeleted(id)} onToggleCompleted={() => onToggleCompleted(id)} />
+        <Task
+          {...itemProps}
+          onDeleted={() => onDeleted(id)}
+          onToggleCompleted={() => onToggleCompleted(id)}
+        />
       </li>
     )
   })
