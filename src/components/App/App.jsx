@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { nanoid } from 'nanoid'
 
 import NewTaskForm from '../NewTaskForm/NewTaskForm'
 import TaskList from '../TaskList/TaskList'
@@ -6,8 +7,6 @@ import Footer from '../Footer/Footer'
 import './App.css'
 
 export default class App extends Component {
-  maxId = 100
-
   state = {
     todoData: [
       this.createTask('Do sports', 5),
@@ -15,7 +14,7 @@ export default class App extends Component {
       this.createTask('Relax at home', 671),
     ],
     term: '',
-    filter: 'all', // all, active, completed
+    filter: 'all',
   }
 
   createTask(label, taskTime) {
@@ -23,7 +22,7 @@ export default class App extends Component {
       label,
       taskTime,
       done: false,
-      id: this.maxId++,
+      id: nanoid(),
     }
   }
 
@@ -47,7 +46,7 @@ export default class App extends Component {
     }
     const newItem = {
       label: text,
-      id: this.maxId++,
+      id: nanoid(),
       taskTime: taskTime,
     }
 
@@ -63,12 +62,8 @@ export default class App extends Component {
   onToggleCompleted = (id) => {
     this.setState(({ todoData }) => {
       const idx = todoData.findIndex((el) => el.id === id)
-
-      //1. update object
       const oldTask = todoData[idx]
       const newTask = { ...oldTask, completed: !oldTask.completed }
-
-      // 2. construct new array
       const newArray = [...todoData.slice(0, idx), newTask, ...todoData.slice(idx + 1)]
 
       return {
