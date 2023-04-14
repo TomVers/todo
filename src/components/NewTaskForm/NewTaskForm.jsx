@@ -1,86 +1,67 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
+import React, { useState } from 'react'
 
 import './NewTaskForm.css'
 
-export default class NewTaskForm extends Component {
-  static defaultProps = {
-    onTaskAdded: () => {},
-  }
+export default function NewTaskForm(props) {
+  const { onTaskAdded } = props
 
-  static propTypes = {
-    onTaskAdded: PropTypes.func,
-  }
+  const [label, setLabel] = useState('')
+  const [min, setMin] = useState('')
+  const [sec, setSec] = useState('')
 
-  state = {
-    label: '',
-    min: '',
-    sec: '',
-  }
-
-  handleSubmit = (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault()
-
-    const { label, min, sec } = this.state
-    this.props.onTaskAdded(label, min * 60 + +sec)
-    this.setState({
-      label: '',
-      min: '',
-      sec: '',
-    })
+    if (label.replace(/\s+/g, '') && min * 60 + +sec > 0) {
+      onTaskAdded(label, min * 60 + +sec)
+      setLabel('')
+      setMin('')
+      setSec('')
+    }
   }
 
-  onLabelChange = (event) => {
-    this.setState({
-      label: event.target.value,
-    })
+  const onLabelChange = (event) => {
+    setLabel(event.target.value)
   }
 
-  onMinChange = (event) => {
-    this.setState({
-      min: event.target.value,
-    })
+  const onMinChange = (event) => {
+    setMin(event.target.value)
   }
 
-  onSecChange = (event) => {
-    this.setState({
-      sec: event.target.value,
-    })
+  const onSecChange = (event) => {
+    setSec(event.target.value)
   }
 
-  render() {
-    return (
-      <form className="new-task-form" onSubmit={this.handleSubmit}>
-        <input
-          type="text"
-          name="label"
-          autoFocus
-          className="new-task-input"
-          placeholder={'Task'}
-          onChange={this.onLabelChange}
-          value={this.state.label}
-        />
-        <input
-          type="number"
-          name="min"
-          className="new-task-form__timer"
-          placeholder={'Min'}
-          min={0}
-          onChange={this.onMinChange}
-          value={this.state.min}
-        />
-        <input
-          type="number"
-          name="sec"
-          className="new-task-form__timer"
-          placeholder={'Sec'}
-          min={0}
-          max={60}
-          onChange={this.onSecChange}
-          value={this.state.sec}
-        />
-        <button type="submit" style={{ display: 'none' }} />
-      </form>
-    )
-  }
+  return (
+    <form className="new-task-form" onSubmit={handleSubmit}>
+      <input
+        type="text"
+        name="label"
+        autoFocus
+        className="new-task-input"
+        placeholder={'Task'}
+        onChange={onLabelChange}
+        value={label}
+      />
+      <input
+        type="number"
+        name="min"
+        className="new-task-form__timer"
+        placeholder={'Min'}
+        min={0}
+        onChange={onMinChange}
+        value={min}
+      />
+      <input
+        type="number"
+        name="sec"
+        className="new-task-form__timer"
+        placeholder={'Sec'}
+        min={0}
+        max={60}
+        onChange={onSecChange}
+        value={sec}
+      />
+      <button type="submit" style={{ display: 'none' }} />
+    </form>
+  )
 }
